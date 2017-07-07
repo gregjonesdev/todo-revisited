@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+  </head>
+  <body>
+    <h1>To Do List</h1>
+      <ul>
+        {{#tasks}}
+          <!-- for the incompleted tasks -->
+          {{^iscompleted}}
+            <li>
+              <form action="/complete" method="post" value={{id}}>
+              <input type="submit" value=""/>
+              <input type="hidden" name="task" value="{{id}}">{{title}}</input>
+            </form>
+            </li>
+          {{/iscompleted}}
+          <!--  -->
+
+          <!-- for the completed tasks -->
+          {{#iscompleted}}
+          <li class="completed">{{title}}</li>
+          {{/iscompleted}}
+          <!--  -->
+
+        {{/tasks}}
+      </ul>
+
+      <form action="/add" method="post">
+        <span>Add a new task: </span>
+        <input type="text" name="newTask" placeholder="new to do"></input>
+        <button type="submit" value="submit">Submit</button>
+      </form>
+
+      <form action="/clear" method="post">
+        <button type="submit" value="clear">Clear Complete</button>
+      </form>
+
+
+  </body>
+</html>

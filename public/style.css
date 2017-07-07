@@ -1,0 +1,15 @@
+body{
+  font-family:sans-serif;
+}
+
+ul{
+  list-style: none;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+button {
+  width: 75px;
+}
